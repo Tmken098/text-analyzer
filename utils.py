@@ -1,14 +1,22 @@
+import re
+
 def clean_text(text):
-    return text.lower()
+    text = text.lower()
+    text = re.sub(r'[^a-z\s]', '', text)
+    text = text.split(' ')
+    return text
+
 
 def word_count(text):
-    words = text.split()
+    words = text
     return len(words)
 
 def most_common_word(text):
-    words = text.split()
-    counts = {}
-    for word in words:
-        counts[word] = counts.get(word, 0) + 1
-        
-    return max(counts, key=counts.get)
+    result = {}
+    for i in text:
+        if i in result:
+            result[i] += 1
+        else:
+            result[i] = 1
+    max_word = sorted(result.items(), key=lambda x: x[1], reverse=True)
+    return max_word[0][0]
