@@ -23,3 +23,6 @@ Output:
 Word count: 4
 Most common word: python
 ```
+
+## Если есть вопросы пишите
+`tmken098@gmail.com`
